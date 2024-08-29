@@ -1,4 +1,5 @@
 import { ReactNode, useEffect } from "react";
+import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 
 interface AuthGuardProps {
@@ -7,11 +8,19 @@ interface AuthGuardProps {
 
 const AuthGuard = ({ children }: AuthGuardProps) => {
   const navigate = useNavigate();
-  const isAuthenticated = !!localStorage.getItem("token");
+  const [cookies, _, removeCookie] = useCookies([
+    "walletId",
+    "walletTransactions",
+  ]);
+
+  const isAuthenticated =
+    !!cookies.walletId && cookies.walletTransactions !== undefined;
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate("/login");
+      navigate("/");
+      removeCookie("walletTransactions");
+      removeCookie("walletId");
     }
   }, [isAuthenticated, navigate]);
 

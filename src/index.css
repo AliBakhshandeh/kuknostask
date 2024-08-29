@@ -2,8 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-indigo-50: #e0e7ff;
+  --color-indigo-100: #c7d2fe;
+  --color-indigo-200: #a5b4fc;
+  --color-indigo-300: #818cf8;
+  --color-indigo-400: #6366f1;
+  --color-indigo-500: #4f46e5;
+  --color-indigo-600: #4338ca;
+  --color-indigo-700: #3730a3;
+  --color-indigo-800: #1e1a78;
+  --color-indigo-900: #1e3a8a;
+  --color-white: #ffffff;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
+}
+
+::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
 }

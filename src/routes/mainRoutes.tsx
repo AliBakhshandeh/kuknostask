@@ -1,6 +1,12 @@
+import { lazy } from "react";
+// components
+import Loadable from "../components/Loadable";
+// guards
 import AuthGuard from "../guards/authGuard";
+// layouts
 import MainLayout from "../layouts/mainLayout";
-import Dashboard from "../pages/dashboard";
+// pages
+const Dashboard = Loadable(lazy(() => import("../pages/dashboard")));
 
 const MainRoutes = {
   path: "/",

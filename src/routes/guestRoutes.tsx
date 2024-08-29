@@ -1,6 +1,18 @@
+// guards
+import { lazy } from "react";
+import Loadable from "../components/Loadable";
 import GuestGuard from "../guards/guestGuard";
+
+// layouts
 import GuestLayout from "../layouts/guestLayout";
-import RequestToCreate from "../pages/registerWallet/requestToCreate";
+
+// pages
+const RecoveryKeys = Loadable(
+  lazy(() => import("../pages/registerWallet/recoverykeys"))
+);
+const RequestToCreate = Loadable(
+  lazy(() => import("../pages/registerWallet/requestToCreate"))
+);
 
 const GuestRoutes = {
   path: "/",
@@ -9,7 +21,10 @@ const GuestRoutes = {
       <GuestLayout />
     </GuestGuard>
   ),
-  children: [{ path: "/", element: <RequestToCreate /> }],
+  children: [
+    { path: "/", element: <RequestToCreate /> },
+    { path: "/recovery", element: <RecoveryKeys /> },
+  ],
 };
 
 export default GuestRoutes;
