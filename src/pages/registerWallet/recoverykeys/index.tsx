@@ -2,7 +2,6 @@ import { useMemo } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import transactions from "../../../mocks/transaction.json";
 import generateRandomPhrases from "../../../utils/generateRandomPhrases";
 
 const RecoveryKeys = () => {
@@ -14,7 +13,7 @@ const RecoveryKeys = () => {
     if (!cookies.walletId) {
       const uuid = uuidv4();
       setCookie("walletId", uuid);
-      setCookie("walletTransactions", transactions.data);
+      setCookie("walletTransactions", []);
       Navigate("/recovery");
     } else {
       Navigate("/dashboard");
