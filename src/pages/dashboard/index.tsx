@@ -1,10 +1,8 @@
-import { lazy, useState } from "react";
+import { lazy } from "react";
 import Loadable from "../../components/Loadable";
 // mocks
 import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
-import transaction from "../../mocks/transaction.json";
-import { CryptoTransaction } from "./dashboard.types";
 
 const HeaderSection = Loadable(
   lazy(() => import("./components/headerSection"))

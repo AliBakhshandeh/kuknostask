@@ -2,8 +2,8 @@ import { useMemo } from "react";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import generateRandomPhrases from "../../../utils/generateRandomPhrases";
 import transactions from "../../../mocks/transaction.json";
+import generateRandomPhrases from "../../../utils/generateRandomPhrases";
 
 const RecoveryKeys = () => {
   const Navigate = useNavigate();
